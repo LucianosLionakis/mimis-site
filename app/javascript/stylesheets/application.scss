@@ -1,0 +1,60 @@
+@import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700');
+
+$text_col: black;
+$background:gray;
+
+.navbar {
+        margin-bottom: 0;
+        background: $background;
+}
+body {
+        background: $background;
+        color: $text_col;
+        font-family: 'Merriweather', sans-serif;
+}
+h1,
+h2 {
+        font-weight: bold;
+}
+p {
+        font-size: 16px;
+        color: $text_col;
+}
+a:visited {
+        color: $background;
+}
+
+.jumbotron {
+        background: #0048CD;
+        color: $text_col;
+        text-align: center;
+        p {
+                color: $text_col;
+                font-size: 26px;
+        }
+}
+.link {
+        color: $text_col;
+}
+.btn-primary {
+        color: $text_col;
+        border-color: $text_col;
+        margin-bottom: 5px;
+}
+.btn-sm {
+        background-color: $text_col;
+        display: inline-block;
+}
+img,
+video,
+audio {
+        margin-top: 20px;
+        max-width: 80%;
+}
+caption {
+
+        float: left;
+        clear: both;
+
+}
