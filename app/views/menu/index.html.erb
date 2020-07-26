@@ -3,25 +3,52 @@
 <head>
 <title>Menu Kafenio Mimis</title>
 </head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Averia+Gruesa+Libre">
 <body>
-    <div class='card m-3 shadow'>
+    <div class='card m-3 shadow averia'>
         <div class="card-body">
-            <h1 class="card-title text-center">Mimis</h5>
-            <div class='row'>
-                <div class='col-md'>
-                    <div class='card shadow'>
-                        <div class="card-body">
-                            <h1 class="card-title text-center">Mimis</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class='col-md'>
-                    <div class='card shadow'>
-                        <div class="card-body">
-                            <h1 class="card-title text-center">Mimis</h5>
+            <h1 class="card-title text-center">MIMIS</h5>
+            <div class='container-fluid'>
+                <div class='card shadow'>
+                    <div class="card-body">
+                        <h1 class="card-title text-center">
+                            <u>
+                                .....Iets om te starten
+                            </u>
+                        </h1>
+                        <% @starter.each do |meal|%>
                             <div class='card shadow'>
                                 <div class="card-body">
-                                    <h1 class="card-title text-center">Gerecht</h5>
+                                    <div class='row'>
+                                        <div class='col-11'>
+                                            <h3 class="card-title"><%= t(meal.title) %></h3>
+                                        </div>
+                                        <% if meal.vegi? %>
+                                            <div class='col-1'>
+                                                <%= mdi_tag('check-circle 36px', class: 'green float-right') %>
+                                            </div>
+                                        <% end %>
+                                    </div>
+                                    <div class='row'>
+                                        <div class='col-10'>
+                                            <h4 class="card-text text-muted"><%= t(meal.description) %></h3>
+                                        </div>
+                                        <div class='col text-right'>
+                                            <h4>
+                                                <%= meal.price %>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <% end %>
+                    </div>
+                    <div class='card shadow'>
+                        <div class="card-body">
+                            <h1 class="card-title text-center">Mimis</h1>
+                            <div class='card shadow'>
+                                <div class="card-body">
+                                    <h3 class="card-title text-center">Gerecht</h3>
                                 </div>
                             </div>
                         </div>
