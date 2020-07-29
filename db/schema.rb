@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_25_214009) do
+ActiveRecord::Schema.define(version: 2020_07_28_192421) do
 
   create_table "meals", force: :cascade do |t|
     t.string "title"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.integer "mealtype"
     t.boolean "vegeterian"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "vegan"
   end
 
   create_table "prices", force: :cascade do |t|

@@ -21,14 +21,16 @@
                                 <div class='card shadow'>
                                     <div class="card-body">
                                         <div class='row'>
-                                            <div class='col-11'>
-                                                <h3 class="card-title"><%= t(meal.title) %></h3>
+                                            <div class='col'>
+                                                <h3 class="card-title"><%= t(meal.title) %>
+                                                <% if meal.vegi? %>
+                                                    <%= mdi_tag('sprout-outline 36px', class: 'green float-right') %>
+                                                <% end %>
+                                                <% if meal.vegan? %>
+                                                    <%= mdi_tag('sprout 36px', class: 'green float-right') %>
+                                                <% end %>
+                                                </h3>
                                             </div>
-                                            <% if meal.vegi? %>
-                                                <div class='col-1'>
-                                                    <%= mdi_tag('check-circle 36px', class: 'green float-right') %>
-                                                </div>
-                                            <% end %>
                                         </div>
                                         <div class='row'>
                                             <div class='col-10'>

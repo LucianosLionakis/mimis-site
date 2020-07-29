@@ -24,6 +24,10 @@ class Meal < ApplicationRecord
         self.vegeterian
     end
 
+    def vegan?
+        self.vegan
+    end
+
     def price
         prices = Price.where(:meal_id => self.id)
         amount = prices.map { |p| p.amount.round() }
