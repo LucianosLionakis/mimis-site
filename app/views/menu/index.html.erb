@@ -4,99 +4,114 @@
 <title>Menu Kafenio Mimis</title>
 </head>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Averia+Gruesa+Libre">
-<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-<body>
-    <div class='card m-3 shadow averia'>
+<body class="averia">
+    <h1 class="card-title text-center title">Καφενειο Mimis</h1>
+    <div class='card m-3 shadow'>
         <div class="card-body">
-            <h1 class="card-title text-center title">MIMIS</h1>
             <h1 class="card-title text-center sub-title"><u><%= t("food") %></u></h1>
             <div class='container-fluid'>
-                <div class="row">
-                <% @all_meals.each do |meals| %>
-                <div class="col-6">
-                    <h1 class="card-title text-center type">
-                        <%= t(meals[0]) %>
-                    </h1>
-                            <% meals[1].each do |meal|%>
-                                <div class='card shadow'>
-                                    <div class="card-body">
-                                        <div class='row'>
-                                            <div class='col card-title name'>
-                                                <%= t(meal.title) %>
-                                                <% if meal.vegi? %>
-                                                    <%= mdi_tag('sprout-outline', class: 'green float-right img-fluid') %>
-                                                <% end %>
-                                                <% if meal.vegan? %>
-                                                    <%= mdi_tag('sprout', class: 'green float-right') %>
-                                                <% end %>
-                                            </div>
-                                        </div>
-                                        <div class='row'>
-                                            <div class='col-10 card-text text-muted description'>
+                <div class="row row-cols-1">
+                    <% @all_meals.each do |meals| %>
+                        <div class="col mb-3">
+                            <div class="card">
+                                <div class="card-header text-center type"><%= t(meals[0]) %></div>
+                                <div class="card-body">
+                                    <% meals[1].each do |meal|%>
+                                    <div class="d-flex justify-content-between">
+                                        <div class='name'>
+                                            <%= t(meal.title) %>
+                                            <span class='card-text text-muted description'>
                                                 <%= t(meal.description) %>
-                                            </div>
-                                            <div class='col text-right price'>
+                                            </span>
+                                        </div>
+                                            <div class='float-right price'>
+                                            <% if meal.vegi? %>
+                                                <%= mdi_tag('sprout-outline', class: 'green') %>
+                                            <% end %>
+                                            <% if meal.vegan? %>
+                                                <%= mdi_tag('sprout', class: 'green') %>
+                                            <% end %>
                                                 <%= meal.price %>
                                             </div>
+                                            </div>
+                                    <% end %>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+        <div class="card-footer">
+            <div> <%= mdi_tag('sprout-outline', class: 'green') %> <%= t("vegetarian") %></div>
+            <div> <%= mdi_tag('sprout', class: 'green') %> <%= t("vegan") %></div>
+        </div>
+    </div>
+        <div class='card m-3 shadow'>
+            <div class="card-body">
+                <h1 class="card-title text-center sub-title"><u><%= t("drinks") %></u></h1>
+                <div class='container-fluid'>
+                    <div class="card-columns">
+                        <% @all_drinks.each do |drinks| %>
+                            <div class='col'>
+                                <div class='card'>
+                                    <div class="card-header text-center type"><%= t(drinks[0]) %></div>
+                                    <div class="card-body">
+                                        <% drinks[1].each do |drink|%>
+                                        <div class="d-flex justify-content-between">
+                                            <div class='name'>
+                                                <%= t(drink.name) %>
+                                            </div>
+                                            <div class='price'><%= drink.price! %></div>
                                         </div>
+                                        <% end %>
                                     </div>
                                 </div>
-                            <% end %>
                             </div>
-                <% end %>
+                        <% end %>
+                    </div>
                 </div>
-                <h1 class="card-title text-center mt-5 sub-title underline"><u><%= t("drinks") %></u></h1>
-                </div>
-                <div class="container-fluid">
-                <% @all_drinks.each do |drinks| %>
-                        <div class='card shadow'>
-                            <div class="card-body">
-                                <h1 class="card-title text-center type">
-                                        <%= t(drinks[0]) %>
-                                </h1>
-                                <ul class="list-group">
-                                    <% drinks[1].each do |drink|%>
-                                        <li class='list-group-item shadow'>
-                                            <div class='row'>
-                                                <div class='col-auto name'><%= t(drink.name) %></div>
-                                                <div class='col text-right price'><%= drink.price! %></div>
-                                            </div>
-                                        </li>
-                                    <% end %>
-                                </ul>
-                        </div>
-                <% end %>
+            </div>
+        </div>
+        <div class='card m-3 shadow'>
+            <div class="card-body">
                 <h1 class="card-title text-center mt-5 sub-title"><u><%= t("wines") %></u></h1>
-                <% @all_wines.each do |wines| %>
-                        <div class='card shadow'>
-                            <div class="card-body">
-                                <h1 class="card-title text-center type">
-                                        <%= t(wines[0]) %>
-                                </h1>
-                                <% wines[1].each do |wine|%>
-                                    <div class='card shadow'>
-                                        <div class="card-body">
-                                            <div class='row'>
-                                                <div class='col card-title name'>
-                                                    <%= t(wine.name) %>
-                                                </div>
+                <div class='container-fluid'>
+                    
+                    <% @all_wines.each do |wines| %>
+                        <div class="col">
+                            <div class='card'>
+                                <div class="card-header text-center type">
+                                    <%= t(wines[0]) %>
+                                </div>
+                                <div class="card-body">
+                                    <% wines[1].each do |wine|%>
+                                    <div class="accordion">
+                                        <div class='d-flex justify-content-between btn btn-link text-dark' data-toggle="collapse" data-target="#collapse<%= wine.name %>" aria-expanded="true" aria-controls="collapse<%= wine.name %>">                                        
+                                            <div class="name">
+                                            <%= t(wine.name) %> 
+                                            <% if t(wine.description) != "" %>
+                                                <%= mdi_tag('menu-down', class: 'align-middle') %>
+                                            <%end%>
                                             </div>
-                                            <div class='row'>
-                                                <div class='col-auto card-text text-muted description'>
-                                                    <%= t(wine.description) %>
-                                                </div>
-                                                <div class='col text-right price'>
-                                                    <%= wine.price! %>
-                                                </div>
+                                            <div class='price'><%= wine.price! %></div>
+                                        </div>
+                                        <div id="collapse<%= wine.name %>" class="collapse" aria-labelledby="heading<%= wine.name %>">
+                                            <div class="ml-3 text-muted description">
+                                                <%= t(wine.description) %>
                                             </div>
                                         </div>
                                     </div>
-                                <% end %>
+                                    <% end %>
+                                </div>
                             </div>
                         </div>
-                <% end %>
+                    <% end %>
                 </div>
-            </div>         
+            </div>
         </div>
     </div>
 </body>

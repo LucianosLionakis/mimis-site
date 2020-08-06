@@ -1,9 +1,8 @@
 // Place all the styles related to the Menu controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-@import "../../../node_modules/bootstrap/scss/bootstrap-grid.scss";
+@import "../../../node_modules/bootstrap/scss/bootstrap";
 @import "../../../node_modules/rfs/scss";
-
 
 .averia {
     font-family: "Averia Gruesa Libre", serif;
@@ -13,59 +12,34 @@ i.green {
     color: green;
 }
 
-i.mdi-sprout i.mdi-sprout-outline  {
-    // @media (min-width: 800px) {
-    //     font-size: 30px;
-    // }
-    // @media (min-width: 800px) {
-    //     font-size: 30px;
-    // }
-    // @media (min-width: 800px) {
-    //     font-size: 30px;
-    // }
-    // @media (min-width: 800px) {
-    //     font-size: 30px;
-    // }
-    line-height: 36px;
-}
-
 .title {
-    @include font-size(5rem);
+  @include font-size(5rem);
 }
 
 .sub-title {
-    @include font-size(4rem);
+  @include font-size(4rem);
 }
 
 .type {
-    @include font-size(3rem);
+  @include font-size(3rem);
 }
-
+.not-a-btn {
+  display: flexbox;
+  background: none !important;
+  border: none !important;
+}
 .name {
-    @include font-size(2rem);
+  @include font-size(2rem);
+  @include padding-top(0.25rem);
+  @include padding-bottom(0.25rem);
 }
 
 .description {
-    @include font-size(1.5rem);
-
+  @include font-size(1.5rem);
 }
 
 .price {
-    @include font-size(1rem);
-    text-align: center;
-}
-
-.card-columns {
-  @include media-breakpoint-only(xl) {
-    column-count: 2;
-  }
-  @include media-breakpoint-only(lg) {
-    column-count: 2;
-  }
-  @include media-breakpoint-only(md) {
-    column-count: 2;
-  }
-  @include media-breakpoint-only(sm) {
-    column-count: 2;
-  }
+  @include font-size(1.5rem);
+  display: flex;
+  align-items: center;
 }

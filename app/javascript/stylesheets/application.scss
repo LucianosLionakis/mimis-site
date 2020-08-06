@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather:400,700');
 
 $text_col: black;
-$background:gray;
+$background:rgb(207, 207, 207);
 
 .navbar {
         margin-bottom: 0;
@@ -58,3 +58,19 @@ caption {
         clear: both;
 
 }
+
+
+.card-columns {
+        @include media-breakpoint-only(xl) {
+          column-count: 3;
+        }
+        @include media-breakpoint-only(lg) {
+          column-count: 2;
+        }
+        @include media-breakpoint-only(md) {
+          column-count: 1;
+        }
+        @include media-breakpoint-only(sm) {
+          column-count: 1;
+        }
+      }

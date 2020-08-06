@@ -60,8 +60,8 @@ def generate_wines()
     # White wines
     white = 0
     Wine.create_wines(
-        ["8_art_vidiano", "dafni", "symphonia"],
-        [25, 28, 30],
+        ["8_art_vidiano", "dafni", "asirtiko", "symphonia"],
+        [25, 28, 28, 30],
         white
     )
 
@@ -84,7 +84,7 @@ def generate_wines()
     # Retsina wines
     retsina = 3
     Wine.create_wines(
-        ["kechribari_fles_500ml", "Savatiano"],
+        ["kechribari_bottle_500ml", "savatiano"],
         [10, 12],
         retsina
     )
@@ -98,8 +98,8 @@ def generate_drinks()
     # Apperitief
     apperitief = 0
     Drink.create_drinks(
-        ["ouzo_38", "ouzo_40", "ouzo_42", "campari", "white_martini", "porto", "tentura", "muscat", "mastixa", "cava", "gin_gordon", "gin_hendricks", "vodka", "jack_daniels", "johnny_walker", "courvoisier", "metaxa"],
-        [        5,         6,         7,         5,               5,       5,         5,        5,         5,      5,            5,              10,        5,             7,               6,             6,        5],
+        ["ouzo_38", "ouzo_40", "ouzo_42", "campari", "white_martini", "red_martini", "porto", "tentura", "muscat", "mastixa", "cava", "gin_gordon", "gin_hendricks", "vodka", "jack_daniels", "johnny_walker", "courvoisier", "metaxa"],
+        [        5,         6,         7,         5,               5,             5,       5,         5,        5,         5,      5,            5,              10,        5,             7,               6,             6,        5],
         apperitief
     )
 
@@ -132,4 +132,5 @@ end
 generate_meals()
 
 generate_wines()
+
 generate_drinks()
