@@ -22,4 +22,10 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  host: localhost
+  adapter: postgresql
+  encoding: utf8
+  database: mimis_site_production
+  pool: 5
+  username: <%= ENV['MIMIS_SITE_DATABASE_USER'] %>
+  password: <%= ENV['MIMIS_SITE_DATABASE_PASSWORD'] %>
