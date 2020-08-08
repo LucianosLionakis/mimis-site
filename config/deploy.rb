@@ -37,3 +37,14 @@ set :keep_releases, 5
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+
+namespace :deploy do
+    desc "reload the database with seed data"
+    task :seed do
+        on roles(:all) do
+            within current_path do
+                execute :bundle, :exec, 'rails', 'db:seed', 'RAILS_ENV=production'
+            end
+        end
+    end
+end
