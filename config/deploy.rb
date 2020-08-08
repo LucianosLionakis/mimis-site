@@ -43,6 +43,7 @@ namespace :deploy do
     task :seed do
         on roles(:all) do
             within current_path do
+                execute :bundle, :exec, 'rails', 'db:migrate', 'RAILS_ENV=production'
                 execute :bundle, :exec, 'rails', 'db:seed', 'RAILS_ENV=production'
             end
         end
