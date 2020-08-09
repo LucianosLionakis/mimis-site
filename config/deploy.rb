@@ -40,11 +40,10 @@ set :keep_releases, 5
 
 namespace :deploy do
     desc "reload the database with seed data"
-    task :seed do
+    after :starting, :seed do
         on roles(:all) do
             within current_path do
-                execute :bundle, :exec, 'rails', 'db:migrate', 'RAILS_ENV=production'
-                execute :bundle, :exec, 'rails', 'db:drop', 'RAILS_ENV=production'
+                execute :bundle, :exec, 'rails', 'db:migrate:reset', 'RAILS_ENV=production DISABLE_DATABASE_ENVIRONMENT_CHECK=1'
                 execute :bundle, :exec, 'rails', 'db:seed', 'RAILS_ENV=production'
             end
         end
