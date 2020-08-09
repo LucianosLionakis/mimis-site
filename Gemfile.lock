@@ -239,7 +239,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   ed25519 (~> 1.2, >= 1.2.4)
   jbuilder (~> 2.7)
-  listen (~> 3.2)
+  listen (~> 3.2, >= 3.2.1)
   material_design_icons
   pg (~> 1.2, >= 1.2.3)
   puma (~> 4.1)
