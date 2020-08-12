@@ -48,4 +48,13 @@ namespace :deploy do
             end
         end
     end
+    desc "Precompile assets"
+    after :starting, :precompile do
+        on roles(:all) do
+            within current_path do
+                execute :bundle, :exec, 'yarn', 'install --check-files'
+                execute :bundle, :exec, 'rails', 'assets:precompile', 'RAILS_ENV=production'
+            end
+        end
+    end
 end
