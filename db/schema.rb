@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_08_01_134728) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "drinks", force: :cascade do |t|
     t.integer "drinktype"
     t.string "name"
@@ -31,7 +34,7 @@ ActiveRecord::Schema.define(version: 2020_08_01_134728) do
 
   create_table "prices", force: :cascade do |t|
     t.float "amount"
-    t.integer "meal_id"
+    t.bigint "meal_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["meal_id"], name: "index_prices_on_meal_id"
